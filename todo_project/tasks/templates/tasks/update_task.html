@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Update Task</title>
+    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Task</h1>
+        <form method="post" class="task-form">
+            {% csrf_token %}
+            <input type="text" name="title" value="{{ task.title }}" required>
+            <button type="submit" class="submit-btn">Update Task</button>
+        </form>
+        <a href="{% url 'task_list' %}" class="back-link">Back to Task List</a>
+    </div>
+</body>
+</html>

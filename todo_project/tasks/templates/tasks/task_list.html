@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Task List</title>
+    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Task List</h1>
+        <div class="task-list">
+            {% for task in tasks %}
+            <div class="task-item">
+                <span class="task-title">{{ task.title }}</span>
+                <div class="task-actions">
+                    <a href="{% url 'update_task' task.id %}" class="action-link">Update</a>
+                    <a href="{% url 'delete_task' task.id %}" class="action-link">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'add_task' %}" class="add-task-link">Add Task</a>
+    </div>
+</body>
+</html>
